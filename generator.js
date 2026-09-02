@@ -144,15 +144,47 @@ function getBreadcrumbsHtml(crumbs) {
   </nav>`;
 }
 
-function getInquiryFormHtml(heading = "Request HVAC Service in Elgin, TX") {
+function getCallInquiryCardHtml(heading = "Direct HVAC Phone Dispatch in Elgin, TX") {
   return `
-  <div class="inquiry-card">
-    <h3>${heading}</h3>
-    <p>Fast dispatch across Elgin 78621. Prefer to call? <a href="${business.phoneTel}" class="text-accent" style="font-weight:700;">${business.phoneFormatted}</a></p>
-    <div class="leadsmart-iframe-container">
-      <iframe src="//leads.leadsmartinc.com/?api_key=8a982b9fc74db2f93fd5f65045f5a1e370ca59ff&affiliate_source=ajoatjduyf1&funnel=4&category=8&step=1&buttons=btn-success" width="100%" height="545" frameborder="0" title="Free HVAC Quote Request" style="border:0; width:100%; min-height:545px; display:block; overflow:hidden;" loading="lazy"></iframe>
+  <div class="call-dispatch-card">
+    <div class="dispatch-status-bar">
+      <span class="status-live-dot"></span>
+      <span class="status-live-text">Technicians On Call Now &bull; Elgin 78621</span>
     </div>
-    <p class="form-footer-note" style="margin-top:10px;">⚡ Free Quotes &bull; No Obligation &bull; 24/7 Direct Dispatch</p>
+    <h3 class="dispatch-title">${heading}</h3>
+    <p class="dispatch-subtitle">Skip the forms and wait times. Speak directly with an Elgin HVAC specialist to troubleshoot your system or schedule immediate dispatch.</p>
+    
+    <div class="call-action-box">
+      <span class="call-action-label">Tap Below to Call Direct:</span>
+      <a href="${business.phoneTel}" class="btn-dispatch-call" aria-label="Call Elgin Heating and Air Immediately">
+        <span class="btn-call-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </span>
+        <span class="btn-call-content">
+          <span class="btn-call-number">${business.phoneFormatted}</span>
+          <span class="btn-call-subtext">24/7 Live Emergency Heating & AC Dispatch</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="dispatch-perks-list">
+      <div class="dispatch-perk-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span>Instant Phone Diagnostic Triage</span>
+      </div>
+      <div class="dispatch-perk-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span>Same-Day Service Across Elgin & Neighboring Areas</span>
+      </div>
+      <div class="dispatch-perk-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span>Upfront Estimates Before Any Work Begins</span>
+      </div>
+      <div class="dispatch-perk-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span>Licensed, Background-Checked HVAC Techs</span>
+      </div>
+    </div>
   </div>`;
 }
 
@@ -272,12 +304,6 @@ function getHead(seo, canonicalPath, schemaObjects = []) {
 
   <!-- Inlined Critical CSS for Core Web Vitals Performance -->
   <style>${minifiedCss}</style>
-
-  <!-- LeadSmart Tracking & Embed Script -->
-  <script type="text/javascript">
-  var po_host=(("https:"==document.location.protocol)?"https://":"http://");
-  document.write(unescape("%3Cscript src='"+po_host+"leads.leadsmartinc.com/js/embed/embed.js?apikey=8a982b9fc74db2f93fd5f65045f5a1e370ca59ff&affiliate_source=ajoatjduyf1&buttons=btn-success' type='text/javascript'%3E%3C/script%3E"));
-  </script>
 
   <!-- Structured Data JSON-LD -->
   ${schemaObjects.map(obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`).join('\n')}
@@ -443,7 +469,7 @@ function buildHomepage() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             Call (877) 361-0428
           </a>
-          <a href="#inquiry" class="btn-secondary">Request Service Online</a>
+          <a href="${business.phoneTel}" class="btn-secondary">Emergency HVAC Dispatch</a>
         </div>
         <div class="hero-trust-list">
           <div class="hero-trust-item">
@@ -461,7 +487,7 @@ function buildHomepage() {
         </div>
       </div>
       <div class="hero-form" id="inquiry">
-        ${getInquiryFormHtml("Schedule Heating Service in Elgin")}
+        ${getCallInquiryCardHtml("Direct Heating Phone Dispatch in Elgin, TX")}
       </div>
     </div>
   </section>`;
@@ -747,7 +773,7 @@ function buildServicePages() {
           </div>
 
           <div>
-            ${getInquiryFormHtml(`Request ${service.name} in Elgin`)}
+            ${getCallInquiryCardHtml(`Call for ${service.name} in Elgin`)}
           </div>
         </div>
 
@@ -891,7 +917,7 @@ function buildAreaPages() {
           </div>
 
           <div>
-            ${getInquiryFormHtml(`Request Service in ${area.name}`)}
+            ${getCallInquiryCardHtml(`Direct Heating Dispatch in ${area.name}`)}
           </div>
         </div>
 
@@ -1029,8 +1055,8 @@ function buildComboPages() {
             </div>
 
             <div>
-              ${getInquiryFormHtml(`Schedule ${service.name} in ${area.name}`)}
-            </div>
+            ${getCallInquiryCardHtml(`Call for ${service.name} in ${area.name}`)}
+          </div>
           </div>
 
           <!-- Diagnostic Steps -->
@@ -1182,7 +1208,7 @@ function buildUtilityPages() {
           </div>
 
           <div>
-            ${getInquiryFormHtml("Send a Service Request")}
+            ${getCallInquiryCardHtml("Call Elgin HVAC Dispatch")}
           </div>
         </div>
       </div>
