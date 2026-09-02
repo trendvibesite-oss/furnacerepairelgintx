@@ -1,0 +1,14 @@
+{
+  "name": "elgin-tx-hvac",
+  "version": "1.0.0",
+  "description": "High-Performance Local HVAC Website for Elgin, Texas",
+  "main": "generator.js",
+  "scripts": {
+    "build": "node generator.js",
+    "audit": "node audit.js",
+    "serve": "npx -y http-server dist -p 8081"
+  },
+  "keywords": ["hvac", "elgin-tx", "furnace-repair"],
+  "author": "Elgin HVAC Specialists",
+  "license": "ISC"
+}

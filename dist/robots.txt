@@ -1,0 +1,5 @@
+# Robots.txt for Elgin Heating & Air Pros
+User-agent: *
+Allow: /
+
+Sitemap: https://elgin-hvac-pros.com/sitemap.xml

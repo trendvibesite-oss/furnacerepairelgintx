@@ -1,0 +1,78 @@
+// Service Area Definitions & Local Community Profiles (Bastrop & Eastern Travis Counties, TX)
+module.exports = [
+  {
+    id: "elgin",
+    name: "Elgin",
+    fullName: "Elgin, TX",
+    state: "Texas",
+    stateAbbr: "TX",
+    zip: "78621",
+    slug: "elgin-tx",
+    isPrimary: true,
+    county: "Bastrop / Travis County",
+    landmarks: "Downtown Historic Brick District, US-290 corridor, FM 973, FM 1100, Shenandoah & Saratoga subdivisions",
+    localContext: "Serving both historic brick bungalows near downtown Elgin and newer residential subdivisions along the US-290 expansion corridor. Elgin experiences rapid winter temperature swings when Texas Northers sweep across Central Texas, putting heavy initial loads on ignition systems and heat exchangers after months of summer idle.",
+    weatherNote: "Winter nights in Bastrop County regularly drop into the 20s and 30s with sudden freeze warnings, demanding reliable ignition cycles and clean airflow.",
+    commonSystems: "Gas furnaces (natural gas & propane), dual-fuel heat pump split systems, and electric air handlers."
+  },
+  {
+    id: "webberville",
+    name: "Webberville",
+    fullName: "Webberville, TX",
+    state: "Texas",
+    stateAbbr: "TX",
+    zip: "78621",
+    slug: "webberville-tx",
+    isPrimary: false,
+    county: "Travis County",
+    landmarks: "FM 969 corridor, Colorado River bottomland properties, Webberville Community Park area",
+    localContext: "Located along FM 969 near the Colorado River corridor, Webberville properties range from riverside acreage homes to rural homesteads. High humidity along the river combined with open-field wind exposure places unique demands on heat pump defrost boards and outdoor condenser coils.",
+    weatherNote: "River valley humidity combined with sudden Central Texas cold fronts increases frost accumulation on outdoor heat pump coils during winter months.",
+    commonSystems: "High-efficiency heat pumps, ground-mounted package units, and rural LP propane furnaces."
+  },
+  {
+    id: "littig",
+    name: "Littig",
+    fullName: "Littig, TX",
+    state: "Texas",
+    stateAbbr: "TX",
+    zip: "78621",
+    slug: "littig-tx",
+    isPrimary: false,
+    county: "Travis County",
+    landmarks: "Littig Road, Old Highway 20, FM 1704 transition area",
+    localContext: "Situated just west of Elgin along the historic rail corridor and Old Highway 20, Littig features spacious rural residential homes and classic farmhouses. Many homes utilize extended ductwork runs across pier-and-beam foundations or unconditioned attic spaces where static pressure and heat loss require precision tuning.",
+    weatherNote: "Open rural terrain leaves homes exposed to biting north winds, making properly insulated heating ducts and clean burner nozzles critical for maintaining indoor warmth.",
+    commonSystems: "Electric heat strips, propane-fired furnaces, and multi-stage split heat pumps."
+  },
+  {
+    id: "lund",
+    name: "Lund",
+    fullName: "Lund, TX",
+    state: "Texas",
+    stateAbbr: "TX",
+    zip: "78621",
+    slug: "lund-tx",
+    isPrimary: false,
+    county: "Travis County",
+    landmarks: "FM 1100, Lund Community, historic farming acreage north of Elgin",
+    localContext: "The Lund agricultural community northeast of Elgin is characterized by open prairie farms, custom homes, and ranch properties off FM 1100. Unshielded from regional winter wind chills, furnaces in Lund run longer continuous cycles during cold snaps, requiring durable limit switches and dependable pilot/electronic ignitions.",
+    weatherNote: "Prairie wind exposure creates steady draft pressures across flue vents, requiring correctly balanced combustion air and clear exhaust venting.",
+    commonSystems: "High-capacity gas furnaces, multi-zone heat pump systems, and smart thermostats."
+  },
+  {
+    id: "beaukiss",
+    name: "Beaukiss",
+    fullName: "Beaukiss, TX",
+    state: "Texas",
+    stateAbbr: "TX",
+    zip: "78621",
+    slug: "beaukiss-tx",
+    isPrimary: false,
+    county: "Williamson / Bastrop County Border",
+    landmarks: "FM 696 corridor, northern rural district, post oak woodlands",
+    localContext: "Located along FM 696 on the northern fringe of the Elgin market, Beaukiss is nestled in wooded acreage properties and quiet rural settings. Heavy tree cover and post oak leaves often settle around outdoor heat pump units, requiring thorough seasonal cleanings to prevent restricted airflow and auxiliary heat lockouts.",
+    weatherNote: "Wooded rural properties experience localized frost pockets during calm freeze nights, increasing reliance on auxiliary emergency heat elements.",
+    commonSystems: "Standard split-system furnaces, dual-fuel heat pumps, and ductless mini-splits."
+  }
+];
