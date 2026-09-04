@@ -81,8 +81,25 @@ function getHeader(currentPath = '') {
     <div class="header-main">
       <div class="container header-main-inner">
         <a href="/" class="brand-logo" aria-label="Elgin Heating and Air Pros Home">
-          <span class="brand-title">Elgin Heating & Air</span>
-          <span class="brand-subtitle">Furnace & HVAC Specialists</span>
+          <span class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="24" y="24" width="464" height="464" rx="108" fill="#0f2b48" stroke="#ff9800" stroke-width="16"/>
+              <path d="M248 100C248 100 215 155 215 190C215 160 195 180 185 200C170 230 162 258 162 290C162 360 205 408 250 415C245 395 244 375 247 355C230 350 215 330 215 305C215 270 240 240 245 205C248 185 248 145 248 100Z" fill="#e65100"/>
+              <path d="M248 230C248 230 230 270 230 295C230 330 245 365 250 375C248 355 246 335 250 315C252 300 255 285 252 265C250 250 249 240 248 230Z" fill="#ffb74d"/>
+              <path d="M264 125L264 400" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+              <path d="M284 150L264 130L244 150" fill="none" stroke="#38bdf8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="264" y1="265" x2="395" y2="265" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+              <line x1="355" y1="265" x2="335" y2="235" stroke="#38bdf8" stroke-width="13" stroke-linecap="round"/>
+              <line x1="355" y1="265" x2="335" y2="295" stroke="#38bdf8" stroke-width="13" stroke-linecap="round"/>
+              <line x1="264" y1="265" x2="360" y2="169" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+              <line x1="264" y1="265" x2="360" y2="361" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+              <circle cx="256" cy="265" r="14" fill="#ffffff"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-title">Elgin Heating & Air</span>
+            <span class="brand-subtitle">Furnace & HVAC Specialists</span>
+          </span>
         </a>
         <nav class="nav-desktop" aria-label="Main Navigation">
           <a href="/" class="nav-link ${currentPath === '/' ? 'active' : ''}">Home</a>
@@ -293,6 +310,16 @@ function getHead(seo, canonicalPath, schemaObjects = [], extraHead = '') {
   <meta name="description" content="${seo.metaDescription}">
   <link rel="canonical" href="${canonicalUrl}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">${gscVerification}
+  
+  <!-- Site Favicon & Device Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0f2b48">
+  <meta name="msapplication-TileColor" content="#0f2b48">
   
   <!-- Open Graph / Social Metadata -->
   <meta property="og:type" content="website">
@@ -1421,12 +1448,41 @@ function writeVercelConfig() {
 }
 
 // ==========================================================================
+// 8. COPY STATIC ASSETS & ICONS
+// ==========================================================================
+function copyStaticFiles() {
+  const iconFiles = [
+    'favicon.svg',
+    'favicon.ico',
+    'favicon-32x32.png',
+    'favicon-16x16.png',
+    'apple-touch-icon.png',
+    'icon-192.png',
+    'icon-512.png',
+    'site-icon.svg',
+    'site.webmanifest'
+  ];
+
+  ensureDir(path.join(DIST_DIR, 'assets', 'images'));
+
+  iconFiles.forEach(file => {
+    const src = path.join(__dirname, 'assets', 'images', file);
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, path.join(DIST_DIR, file));
+      fs.copyFileSync(src, path.join(DIST_DIR, 'assets', 'images', file));
+    }
+  });
+  console.log('✅ Static icons and webmanifest verified in dist.');
+}
+
+// ==========================================================================
 // RUN GENERATOR PIPELINE
 // ==========================================================================
 function run() {
   console.log('🚀 Starting Elgin, Texas HVAC Website Generator...');
   ensureDir(DIST_DIR);
 
+  copyStaticFiles();
   buildHomepage();
   buildServicePages();
   buildAreaPages();
