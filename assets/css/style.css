@@ -247,6 +247,13 @@ p {
   display: block;
 }
 
+/* Hide header icon on mobile site view */
+@media (max-width: 860px) {
+  .brand-logo-icon {
+    display: none !important;
+  }
+}
+
 .brand-text {
   display: flex;
   flex-direction: column;
