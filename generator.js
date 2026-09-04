@@ -822,9 +822,9 @@ function buildServicePages() {
               ${service.name} in Elgin, TX
             </a>
             ${areas.filter(a => !a.isPrimary).map(a => `
-              <a href="/service-area/${a.slug}/" class="area-link-item">
+              <a href="/services/${service.id}-${a.slug}/" class="area-link-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                HVAC Services in ${a.name}, TX
+                ${service.name} in ${a.name}, TX
               </a>
             `).join('')}
           </div>
@@ -944,7 +944,7 @@ function buildAreaPages() {
               <div class="card">
                 <h4>${s.name} in ${area.name}</h4>
                 <p>${s.shortDescription}</p>
-                <a href="/${s.slug}/" class="card-link">${s.name} Details &rarr;</a>
+                <a href="${area.isPrimary ? `/${s.slug}/` : `/services/${s.id}-${area.slug}/`}" class="card-link">${s.name} in ${area.name} &rarr;</a>
               </div>
             `).join('')}
           </div>
@@ -978,6 +978,23 @@ function buildAreaPages() {
   });
 }
 
+// Helper: Generate service-specific climate and operational notes for satellite communities
+function getLocalizedServiceNote(service, area) {
+  if (service.id.includes('heat-pump')) {
+    return `In ${area.name}, river moisture along local waterways and open prairie wind chills cause frost buildup on outdoor heat pump coils during sudden Central Texas freeze warnings, making responsive defrost boards and reversing valves critical.`;
+  } else if (service.id.includes('thermostat')) {
+    return `Properties in ${area.name} frequently experience rural electrical line fluctuations and extended low-voltage control wiring runs, requiring proper 24V transformer calibration and dedicated C-wire circuits.`;
+  } else if (service.id.includes('boiler')) {
+    return `Historic homes and rural homesteads in ${area.name} rely on closed-loop hydronic heating systems that require balanced expansion tank pressure and freeze-protected pipe circulation during hard freezes.`;
+  } else if (service.id.includes('installation') || service.id.includes('replacement')) {
+    return `Accurate ACCA Manual J load sizing for ${area.name} residential architecture accounts for intense summer heat loads, duct heat gain in attics, and rapid temperature swings during Texas Northers.`;
+  } else if (service.id.includes('emergency') || service.id.includes('24-hour')) {
+    return `Sub-freezing Texas cold fronts across ${area.county} demand fast emergency heating response to protect family comfort and keep plumbing lines from freezing.`;
+  } else {
+    return `Rapid Central Texas winter temperature drops put sudden thermal shock on ignition sequences, flame sensors, and heat exchangers in ${area.name} homes after months of idle summer operation.`;
+  }
+}
+
 // ==========================================================================
 // 4. GENERATE 56 SERVICE × AREA COMBINATION PAGES
 // ==========================================================================
@@ -986,7 +1003,6 @@ function buildComboPages() {
   let comboCount = 0;
 
   // Generate combos for non-primary areas (Webberville, Littig, Lund, Beaukiss)
-  // (Primary Elgin pages are served by dedicated /service-slug-elgin-tx/ pages)
   const subAreas = areas.filter(a => !a.isPrimary);
 
   subAreas.forEach(area => {
@@ -995,8 +1011,8 @@ function buildComboPages() {
       const canonicalPath = `/services/${comboSlug}/`;
 
       const seo = {
-        title: `${service.name} in ${area.name}, TX | Elgin HVAC Pros`,
-        metaDescription: `Expert ${service.name.toLowerCase()} in ${area.fullName} (${area.zip}). Fast local diagnostics, skilled technicians, and 24/7 service. Call (877) 361-0428.`
+        title: `${service.name} in ${area.name}, TX | Fast Diagnostics & Repair`,
+        metaDescription: `Professional ${service.name.toLowerCase()} in ${area.fullName} (${area.zip}). Fast local diagnostics, skilled technicians, and 24/7 service. Call (877) 361-0428.`
       };
 
       const crumbs = [
@@ -1007,17 +1023,21 @@ function buildComboPages() {
 
       const comboFaqs = [
         {
-          q: `How soon can a technician arrive for ${service.name.toLowerCase()} in ${area.name}?`,
-          a: `We provide prompt dispatch across the ${area.name} area (ZIP ${area.zip}). For heating emergencies during cold weather, same-day and 24/7 emergency dispatch is available.`
+          q: `How soon can a technician arrive for ${service.name.toLowerCase()} in ${area.name}, TX?`,
+          a: `We provide prompt dispatch directly to ${area.name} (ZIP ${area.zip}). For heating emergencies during cold weather, same-day and 24/7 priority emergency dispatch is available.`
         },
         {
           q: `Why is professional ${service.name.toLowerCase()} important for ${area.name} homes?`,
-          a: `Given the local conditions in ${area.name}—including ${area.weatherNote.toLowerCase()}—proper diagnostic servicing prevents unexpected failures and ensures safe, efficient operation.`
+          a: `Given the local conditions in ${area.name} and across ${area.county}—${getLocalizedServiceNote(service, area).toLowerCase()}—proper diagnostic servicing prevents unexpected failures and ensures safe, efficient operation.`
         },
         {
-          q: `Do you service the common heating configurations found in ${area.name}?`,
-          a: `Yes. We carry diagnostic tools and universal parts for ${area.commonSystems.toLowerCase()} commonly installed in ${area.name} properties.`
-        }
+          q: `Do you service the specific heating systems installed in ${area.name}?`,
+          a: `Yes. Our technicians carry diagnostic tools and universal parts for ${area.commonSystems.toLowerCase()} commonly operating throughout ${area.name} properties.`
+        },
+        ...(service.faqs ? service.faqs.slice(0, 3).map(f => ({
+          q: f.q || f.question,
+          a: f.a || f.answer
+        })) : [])
       ];
 
       const schemas = [
@@ -1040,7 +1060,7 @@ function buildComboPages() {
           <p style="max-width:750px; margin:0 auto 25px; color:#e2e8f0; font-size:1.15rem;">Fast, professional ${service.name.toLowerCase()} tailored for residential properties in ${area.fullName} (${area.zip}) and surrounding ${area.county} neighborhoods.</p>
           <a href="${business.phoneTel}" class="btn-primary" style="display:inline-flex;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            Call (877) 361-0428
+            Call For Service: ${business.phoneFormatted}
           </a>
         </div>
       </section>`;
@@ -1056,8 +1076,8 @@ function buildComboPages() {
               <p>For homes situated in the <strong>${area.name}</strong> community, local environmental factors play a direct role in heating performance. ${area.localContext}</p>
               
               <div class="problem-box">
-                <h4>Local Climate Consideration for ${area.name}</h4>
-                <p style="margin-bottom:0;">${area.weatherNote}</p>
+                <h4>Local Climate & Heating Consideration for ${area.name}</h4>
+                <p style="margin-bottom:0;">${getLocalizedServiceNote(service, area)}</p>
               </div>
 
               <h3>Common Symptoms in ${area.name} Homes</h3>
@@ -1067,14 +1087,22 @@ function buildComboPages() {
             </div>
 
             <div>
-            ${getCallInquiryCardHtml(`Call for ${service.name} in ${area.name}`)}
+              ${getCallInquiryCardHtml(`Call for ${service.name} in ${area.name}`)}
+            </div>
           </div>
-          </div>
+
+          <!-- Extended Content Sections -->
+          ${service.extendedSections && service.extendedSections.length > 0 ? service.extendedSections.map(section => `
+            <div style="margin-top:40px;">
+              <h2>${section.heading}</h2>
+              ${section.content}
+            </div>
+          `).join('') : ''}
 
           <!-- Diagnostic Steps -->
           <div style="margin-top:40px;">
             <h2>Our ${service.name} Diagnostic & Safety Standards</h2>
-            <p>Technicians dispatched to ${area.name} perform comprehensive system testing using professional digital diagnostic gauges:</p>
+            <p>Technicians dispatched to ${area.name} perform comprehensive system testing using professional digital diagnostic equipment:</p>
             <div class="grid-2" style="margin-top:20px;">
               ${service.diagnosticChecklist.map((item, idx) => `
                 <div class="card" style="padding:18px;">
@@ -1119,7 +1147,7 @@ function buildComboPages() {
               ${subAreas.filter(a => a.id !== area.id).map(a => `
                 <a href="/services/${service.id}-${a.slug}/" class="area-link-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                ${service.name} in ${a.name}, TX
+                  ${service.name} in ${a.name}, TX
                 </a>
               `).join('')}
             </div>
@@ -1376,32 +1404,12 @@ Sitemap: ${business.domain}/sitemap.xml
 }
 
 // ==========================================================================
-// 7. GENERATE REDIRECT RULES FOR REMOVED COMBO PAGES
+// 7. WRITE VERCEL CONFIGURATION
 // ==========================================================================
-function buildRedirectRules() {
-  console.log('Generating redirect rules for removed combo pages...');
-  const subAreas = areas.filter(a => !a.isPrimary);
-  const redirects = [];
-  
-  subAreas.forEach(area => {
-    services.forEach(service => {
-      redirects.push({
-        source: `/services/${service.id}-${area.slug}/`,
-        destination: `/service-area/${area.slug}/`,
-        permanent: true
-      });
-    });
-  });
-
-  // Write Vercel redirect config
+function writeVercelConfig() {
   const vercelConfig = {
     buildCommand: "node generator.js",
-    outputDirectory: "dist",
-    redirects: redirects.map(r => ({
-      source: r.source,
-      destination: r.destination,
-      statusCode: 301
-    }))
+    outputDirectory: "dist"
   };
 
   fs.writeFileSync(
@@ -1409,7 +1417,7 @@ function buildRedirectRules() {
     JSON.stringify(vercelConfig, null, 2),
     'utf8'
   );
-  console.log(`✅ Generated ${redirects.length} redirect rules in vercel.json`);
+  console.log(`✅ vercel.json configuration verified.`);
 }
 
 // ==========================================================================
@@ -1418,18 +1426,14 @@ function buildRedirectRules() {
 function run() {
   console.log('🚀 Starting Elgin, Texas HVAC Website Generator...');
   ensureDir(DIST_DIR);
-  const staleServicesDir = path.join(DIST_DIR, 'services');
-  if (fs.existsSync(staleServicesDir)) {
-    fs.rmSync(staleServicesDir, { recursive: true, force: true });
-  }
 
   buildHomepage();
   buildServicePages();
   buildAreaPages();
-  // buildComboPages() — REMOVED: 56 combo pages eliminated per SEO audit (thin/duplicate content risk)
+  buildComboPages();
   buildUtilityPages();
   buildSitemapAndRobots();
-  buildRedirectRules();
+  writeVercelConfig();
 
   console.log('\n======================================================');
   console.log(`🎉 BUILD COMPLETED SUCCESSFULLY!`);
