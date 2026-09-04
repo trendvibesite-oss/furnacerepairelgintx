@@ -6,7 +6,7 @@ module.exports = {
   phoneFormatted: "(877) 361-0428",
   phoneTel: "tel:+18773610428",
   email: "service@elgin-hvac-pros.com",
-  domain: "https://elgin-hvac-pros.com", // Canonical root
+  domain: "https://furnacerepairelgintx.forum", // Canonical root
   address: {
     streetAddress: "108 Central Ave",
     addressLocality: "Elgin",

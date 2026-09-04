@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elgin-hvac-pros.com/sitemap.xml
+Sitemap: https://furnacerepairelgintx.forum/sitemap.xml

@@ -1,7 +1,286 @@
 {
-  "version": 2,
   "buildCommand": "node generator.js",
   "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": true
+  "redirects": [
+    {
+      "source": "/services/hvac-services-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-tune-up-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-maintenance-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-maintenance-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/emergency-heating-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-maintenance-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-installation-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-replacement-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/boiler-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/thermostat-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/24-hour-hvac-repair-webberville-tx/",
+      "destination": "/service-area/webberville-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/hvac-services-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-tune-up-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-maintenance-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-maintenance-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/emergency-heating-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-maintenance-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-installation-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-replacement-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/boiler-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/thermostat-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/24-hour-hvac-repair-littig-tx/",
+      "destination": "/service-area/littig-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/hvac-services-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-tune-up-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-maintenance-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-maintenance-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/emergency-heating-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-maintenance-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-installation-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-replacement-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/boiler-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/thermostat-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/24-hour-hvac-repair-lund-tx/",
+      "destination": "/service-area/lund-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/hvac-services-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-tune-up-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-maintenance-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heating-maintenance-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/emergency-heating-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/heat-pump-maintenance-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-installation-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/furnace-replacement-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/boiler-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/thermostat-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/24-hour-hvac-repair-beaukiss-tx/",
+      "destination": "/service-area/beaukiss-tx/",
+      "statusCode": 301
+    }
+  ]
 }

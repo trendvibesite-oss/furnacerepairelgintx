@@ -202,17 +202,21 @@ function getCtaBoxHtml(title = "Need Reliable Furnace or Heating Service in Elgi
 
 function getFaqAccordionHtml(faqs) {
   if (!faqs || faqs.length === 0) return '';
-  const items = faqs.map((faq, idx) => `
+  const items = faqs.map((faq, idx) => {
+    const question = faq.q || faq.question;
+    const answer = faq.a || faq.answer;
+    return `
     <div class="faq-item ${idx === 0 ? 'is-active' : ''}">
       <button class="faq-question" type="button" aria-expanded="${idx === 0 ? 'true' : 'false'}">
-        <span>${faq.q}</span>
+        <span>${question}</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>${faq.a}</p>
+        <p>${answer}</p>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   return `<div class="faq-accordion">${items}</div>`;
 }
@@ -373,10 +377,10 @@ function getFaqSchema(faqs) {
     "@type": "FAQPage",
     "mainEntity": faqs.map(f => ({
       "@type": "Question",
-      "name": f.q,
+      "name": f.q || f.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": f.a
+        "text": f.a || f.answer
       }
     }))
   };
@@ -492,69 +496,40 @@ function buildHomepage() {
     </div>
   </section>`;
 
-  // Core Section 1: Furnace Repair in Elgin, TX
+  // Core Section 1: Overview of Furnace & Heating Diagnostics in Elgin
   html += `
   <section class="section">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-badge">Fast Local Diagnostics</span>
-        <h2>Furnace Repair in Elgin, TX</h2>
-        <p class="text-muted" style="max-width:750px; margin:0 auto;">When winter freezes cross Bastrop County, an unexpected furnace shutdown is an urgent situation. We troubleshoot and fix all major heating problems with speed and precision.</p>
+        <span class="section-badge">Local Diagnostic Support</span>
+        <h2>Heating Diagnostics & Furnace Troubleshooting in Elgin, TX</h2>
+        <p class="text-muted" style="max-width:780px; margin:0 auto;">When winter freezes sweep across Bastrop County, an unexpected heating failure demands swift, accurate troubleshooting. We provide dedicated residential diagnostics, safety inspections, and component repairs for all gas, electric, and heat pump heating systems.</p>
       </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      <div class="grid-2" style="margin-top:30px; align-items:center;">
+        <div>
+          <h3>Targeted Diagnostics for Central Texas Heating Systems</h3>
+          <p>Sudden heating failures in Elgin frequently happen during the season's first major cold front when furnaces restart after months of summer dormancy. Whether your heater suffers from ignition lockouts, oxidated flame sensors, failed blower capacitors, or cracked heat exchangers, our technicians pinpoint the mechanical or electrical root cause quickly.</p>
+          <p>For in-depth troubleshooting protocols, component testing details, safety guidelines, and repair cost factors, visit our dedicated diagnostic resource:</p>
+          <div style="margin:20px 0;">
+            <a href="/furnace-repair-elgin-tx/" class="btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+              <span>Detailed Furnace Repair & Diagnostics Guide</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
           </div>
-          <h3>Furnace Won't Ignite or Start</h3>
-          <p>Failed hot surface ignitors, oxidated flame sensors, or tripped high-limit switches prevent gas burners from firing. We test control board relays and restore ignition safety circuits.</p>
-          <a href="/furnace-repair-elgin-tx/" class="card-link">Learn Diagnostics &rarr;</a>
+          <p class="text-muted" style="font-size:0.95rem;">Need immediate help? Our technicians are dispatched locally throughout Elgin (ZIP 78621) with fully stocked trucks for same-day service.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-          </div>
-          <h3>Blowing Cold Air or Lukewarm</h3>
-          <p>When the blower motor runs but the burners cut out, restricted air filter pressure or delayed flame rectification is often to blame. We balance fuel-to-air combustion for steady heat.</p>
-          <a href="/heating-repair-elgin-tx/" class="card-link">Heating Solutions &rarr;</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.03 3.56c-1.67-1.39-3.74-2.3-6.03-2.51v2.01c1.73.19 3.31.88 4.61 1.92l1.42-1.42zM11 1.05C8.71 1.26 6.64 2.17 4.97 3.56l1.42 1.42C7.69 3.94 9.27 3.25 11 3.06V1.05zM3.56 4.97C2.17 6.64 1.26 8.71 1.05 11h2.01c.19-1.73.88-3.31 1.92-4.61L3.56 4.97zM1.05 13c.21 2.29 1.12 4.36 2.51 6.03l1.42-1.42c-1.04-1.3-1.73-2.88-1.92-4.61H1.05zm3.92 7.44C6.64 21.83 8.71 22.74 11 22.95v-2.01c-1.73-.19-3.31-.88-4.61-1.92l-1.42 1.42zm7.03 1.95c2.29-.21 4.36-1.12 6.03-2.51l-1.42-1.42c-1.3 1.04-2.88 1.73-4.61 1.92v2.01zm7.44-3.92c1.39-1.67 2.3-3.74 2.51-6.03h-2.01c-.19 1.73-.88 3.31-1.92 4.61l1.42 1.42zm1.95-7.03c-.21-2.29-1.12-4.36-2.51-6.03l-1.42 1.42c1.04 1.3 1.73 2.88 1.92 4.61h2.01zM12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
-          </div>
-          <h3>Short Cycling (Turns On & Off)</h3>
-          <p>Short cycling puts heavy stress on ignition modules and drives up energy bills. We identify high-limit switch cutoffs, draft inducer issues, and flue exhaust restrictions.</p>
-          <a href="/furnace-tune-up-elgin-tx/" class="card-link">Tune-Up Details &rarr;</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
-          </div>
-          <h3>Unusual Noises & Rattling</h3>
-          <p>Screeching bearings, banging metal, or continuous clicking indicate failing blower wheel assemblies, draft motor fatigue, or loose cabinet dampening.</p>
-          <a href="/furnace-maintenance-elgin-tx/" class="card-link">Maintenance Plans &rarr;</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          </div>
-          <h3>Heat Pump Defrost & Reversing Issues</h3>
-          <p>Central Texas heat pumps must defrost automatically during cold mornings. We troubleshoot stuck 4-way reversing valves, bad defrost sensors, and auxiliary heat sequencers.</p>
-          <a href="/heat-pump-repair-elgin-tx/" class="card-link">Heat Pump Care &rarr;</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.32 17.9 14.31 19 12 19z"/></svg>
-          </div>
-          <h3>Thermostat & Wiring Communication</h3>
-          <p>Blank screens, dead 24V transformers, or faulty control board relays cause heaters to ignore thermostat calls. We repair control wiring and calibrate digital thermostats.</p>
-          <a href="/thermostat-repair-elgin-tx/" class="card-link">Thermostat Service &rarr;</a>
+        <div class="card" style="padding:24px; border-left:4px solid var(--accent);">
+          <h4>Common Heating Symptoms We Troubleshoot Daily:</h4>
+          <ul style="margin-left:20px; list-style:disc; margin-bottom:15px; color:var(--text-dark); line-height:1.7;">
+            <li><strong>No Heat / Blowing Cold:</strong> Hot surface ignitor failure or flame sensor lockout</li>
+            <li><strong>Short-Cycling:</strong> Restricted airflow or tripped high-limit safety switches</li>
+            <li><strong>Unusual Noises:</strong> Blower motor bearings, loose belts, or inducer wheel fatigue</li>
+            <li><strong>Gas Odors / Safety Concerns:</strong> Delayed burner ignition or heat exchanger integrity issues</li>
+            <li><strong>Heat Pump Lockouts:</strong> Stuck reversing valves or defrost control board failures</li>
+          </ul>
+          <a href="/furnace-repair-elgin-tx/" class="card-link" style="font-weight:700;">Read Complete Furnace Diagnostic Protocol &rarr;</a>
         </div>
       </div>
 
@@ -562,12 +537,32 @@ function buildHomepage() {
     </div>
   </section>`;
 
+  // Helper for varied anchor text across service cards
+  const getActionAnchor = (id, name) => {
+    switch (id) {
+      case 'furnace-repair': return 'Furnace Diagnostics & Repair &rarr;';
+      case 'furnace-tune-up': return 'Seasonal Tune-Up Checklist &rarr;';
+      case 'furnace-maintenance': return 'Preventative Care Details &rarr;';
+      case 'heating-repair': return 'Heating Troubleshooting &rarr;';
+      case 'heating-maintenance': return 'System Maintenance Plans &rarr;';
+      case 'emergency-heating-repair': return 'Emergency 24/7 Dispatch &rarr;';
+      case 'heat-pump-repair': return 'Heat Pump Troubleshooting &rarr;';
+      case 'heat-pump-maintenance': return 'Bi-Annual Heat Pump Care &rarr;';
+      case 'furnace-installation': return 'New System Sizing & Codes &rarr;';
+      case 'furnace-replacement': return 'Replacement & Upgrade Guide &rarr;';
+      case 'boiler-repair': return 'Hydronic Boiler Diagnostics &rarr;';
+      case 'thermostat-repair': return 'Thermostat Wiring & Calibration &rarr;';
+      case '24-hour-hvac-repair': return '24/7 Round-the-Clock Service &rarr;';
+      default: return `Explore ${name} &rarr;`;
+    }
+  };
+
   // Core Section 2: Complete HVAC Services Grid (14 Services)
   const serviceCardsHtml = services.map(s => `
     <div class="card">
       <h4>${s.name}</h4>
       <p>${s.shortDescription}</p>
-      <a href="/${s.slug}/" class="card-link">Explore ${s.name} &rarr;</a>
+      <a href="/${s.slug}/" class="card-link">${getActionAnchor(s.id, s.name)}</a>
     </div>
   `).join('');
 
@@ -761,25 +756,39 @@ function buildServicePages() {
             <p>${service.leadParagraph}</p>
             <p>${service.whyItMatters}</p>
 
-            <h3>Common Symptoms That Call For ${service.name}</h3>
+            <h3>Common Signs You Need ${service.name}</h3>
             <ul style="margin-left:20px; list-style:disc; margin-bottom:20px;">
               ${service.commonSymptoms.map(sym => `<li style="margin-bottom:8px;">${sym}</li>`).join('')}
             </ul>
 
+            ${service.problemBoxTitle ? `
             <div class="problem-box">
-              <h4>Why Timely ${service.name} Matters in Central Texas</h4>
-              <p style="margin-bottom:0;">Ignoring minor heating irregularities often leads to major mechanical breakdowns during peak cold spells. Prompt diagnostics keep utility costs low and prevent sudden system shutoffs.</p>
-            </div>
+              <h4>${service.problemBoxTitle}</h4>
+              <p style="margin-bottom:0;">${service.problemBoxContent}</p>
+            </div>` : ''}
           </div>
 
           <div>
             ${getCallInquiryCardHtml(`Call for ${service.name} in Elgin`)}
           </div>
-        </div>
+        </div>`;
 
+    // Extended Content Sections (NEW - unique per page)
+    if (service.extendedSections && service.extendedSections.length > 0) {
+      service.extendedSections.forEach(section => {
+        html += `
         <div style="margin-top:40px;">
-          <h2>What Our ${service.name} Diagnostic Protocol Includes</h2>
-          <p>Every service call follows our strict multi-point technical inspection protocol to isolate and resolve underlying mechanical and electrical faults:</p>
+          <h2>${section.heading}</h2>
+          ${section.content}
+        </div>`;
+      });
+    }
+
+    // Diagnostic Protocol
+    html += `
+        <div style="margin-top:40px;">
+          <h2>Our ${service.name} Diagnostic Process</h2>
+          <p>Each service call includes a thorough multi-point inspection to find and fix the root cause:</p>
           <div class="grid-2" style="margin-top:20px;">
             ${service.diagnosticChecklist.map((item, idx) => `
               <div class="card" style="padding:18px;">
@@ -792,7 +801,7 @@ function buildServicePages() {
           </div>
         </div>
 
-        ${getCtaBoxHtml(`Ready for Expert ${service.name} in Elgin?`, `Our licensed heating technicians are on standby for same-day service across Elgin, TX 78621. Call ${business.phoneFormatted} today.`)}
+        ${getCtaBoxHtml(`Need ${service.name} in Elgin?`, `Our licensed heating technicians provide same-day service across Elgin, TX 78621. Call ${business.phoneFormatted}.`)}
 
         <!-- FAQs -->
         <div style="margin-top:40px;">
@@ -802,17 +811,17 @@ function buildServicePages() {
 
         <!-- Service Area Links for this specific service -->
         <div style="margin-top:50px;">
-          <h2>${service.name} Service Areas</h2>
-          <p>We provide comprehensive ${service.name.toLowerCase()} across Elgin and all neighboring communities:</p>
+          <h2>${service.name} Across the Elgin Region</h2>
+          <p>We provide ${service.name.toLowerCase()} for homeowners throughout the greater Elgin area:</p>
           <div class="area-links-grid">
             <a href="/${service.slug}/" class="area-link-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               ${service.name} in Elgin, TX
             </a>
             ${areas.filter(a => !a.isPrimary).map(a => `
-              <a href="/services/${service.id}-${a.slug}/" class="area-link-item">
+              <a href="/service-area/${a.slug}/" class="area-link-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                ${service.name} in ${a.name}, TX
+                HVAC Services in ${a.name}, TX
               </a>
             `).join('')}
           </div>
@@ -932,7 +941,7 @@ function buildAreaPages() {
               <div class="card">
                 <h4>${s.name} in ${area.name}</h4>
                 <p>${s.shortDescription}</p>
-                <a href="${area.isPrimary ? `/${s.slug}/` : `/services/${s.id}-${area.slug}/`}" class="card-link">Explore ${s.name} &rarr;</a>
+                <a href="/${s.slug}/" class="card-link">${s.name} Details &rarr;</a>
               </div>
             `).join('')}
           </div>
@@ -1364,18 +1373,60 @@ Sitemap: ${business.domain}/sitemap.xml
 }
 
 // ==========================================================================
+// 7. GENERATE REDIRECT RULES FOR REMOVED COMBO PAGES
+// ==========================================================================
+function buildRedirectRules() {
+  console.log('Generating redirect rules for removed combo pages...');
+  const subAreas = areas.filter(a => !a.isPrimary);
+  const redirects = [];
+  
+  subAreas.forEach(area => {
+    services.forEach(service => {
+      redirects.push({
+        source: `/services/${service.id}-${area.slug}/`,
+        destination: `/service-area/${area.slug}/`,
+        permanent: true
+      });
+    });
+  });
+
+  // Write Vercel redirect config
+  const vercelConfig = {
+    buildCommand: "node generator.js",
+    outputDirectory: "dist",
+    redirects: redirects.map(r => ({
+      source: r.source,
+      destination: r.destination,
+      statusCode: 301
+    }))
+  };
+
+  fs.writeFileSync(
+    path.join(__dirname, 'vercel.json'),
+    JSON.stringify(vercelConfig, null, 2),
+    'utf8'
+  );
+  console.log(`✅ Generated ${redirects.length} redirect rules in vercel.json`);
+}
+
+// ==========================================================================
 // RUN GENERATOR PIPELINE
 // ==========================================================================
 function run() {
   console.log('🚀 Starting Elgin, Texas HVAC Website Generator...');
   ensureDir(DIST_DIR);
+  const staleServicesDir = path.join(DIST_DIR, 'services');
+  if (fs.existsSync(staleServicesDir)) {
+    fs.rmSync(staleServicesDir, { recursive: true, force: true });
+  }
 
   buildHomepage();
   buildServicePages();
   buildAreaPages();
-  buildComboPages();
+  // buildComboPages() — REMOVED: 56 combo pages eliminated per SEO audit (thin/duplicate content risk)
   buildUtilityPages();
   buildSitemapAndRobots();
+  buildRedirectRules();
 
   console.log('\n======================================================');
   console.log(`🎉 BUILD COMPLETED SUCCESSFULLY!`);
