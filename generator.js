@@ -277,9 +277,12 @@ function getFooter() {
 </html>`;
 }
 
-function getHead(seo, canonicalPath, schemaObjects = []) {
+function getHead(seo, canonicalPath, schemaObjects = [], extraHead = '') {
   const canonicalUrl = `${business.domain}${canonicalPath}`;
   const ogImage = `${business.domain}/assets/images/og-elgin-hvac.jpg`;
+  const gscVerification = (canonicalPath === '/' || extraHead.includes('google-site-verification'))
+    ? '\n  <!-- Google Search Console Verification -->\n  <meta name="google-site-verification" content="uFPZZoyqAhtQxPRm6kom7JwwMEWqstm06YaPxNxM6yE">'
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en-US">
@@ -289,7 +292,7 @@ function getHead(seo, canonicalPath, schemaObjects = []) {
   <title>${seo.title}</title>
   <meta name="description" content="${seo.metaDescription}">
   <link rel="canonical" href="${canonicalUrl}">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">${gscVerification}
   
   <!-- Open Graph / Social Metadata -->
   <meta property="og:type" content="website">
