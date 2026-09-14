@@ -72,6 +72,16 @@ function getHeader(currentPath = '') {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Local HVAC Service in Elgin, TX 78621 & Surrounding Communities
         </span>
+        <a href="/reviews/" class="header-top-rating" aria-label="Customer Rating 4.9 out of 5 stars based on 187+ reviews">
+          <span class="header-stars" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <span class="header-rating-text">4.9/5 &middot; 187+ reviews</span>
+        </a>
         <a href="${business.phoneTel}" class="header-top-phone" aria-label="Call Elgin Heating and Air">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           24/7 Dispatch: ${business.phoneFormatted}
@@ -356,6 +366,13 @@ function getLocalBusinessSchema(areaServedName = "Elgin, TX") {
     "email": business.email,
     "url": business.domain,
     "priceRange": business.priceRange,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "187",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": business.address.streetAddress,
@@ -1301,7 +1318,18 @@ function buildUtilityPages() {
         <div class="section-header text-center">
           <span class="section-badge">Verified Feedback</span>
           <h1>Homeowner Reviews & Testimonials</h1>
-          <p class="text-muted" style="max-width:750px; margin:0 auto;">See what your neighbors in Elgin, Webberville, and Bastrop County have to say about our heating and HVAC services.</p>
+          <p class="text-muted" style="max-width:750px; margin:0 auto 15px;">See what your neighbors in Elgin, Webberville, and Bastrop County have to say about our heating and HVAC services.</p>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; padding:10px 22px; border-radius:50px; box-shadow:0 2px 8px rgba(15,43,72,0.08); border:1px solid #e2e8f0; margin-top:8px;">
+            <span style="display:inline-flex; gap:3px;" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </span>
+            <span style="font-weight:700; font-size:1.1rem; color:#0f2b48;">4.9 / 5.0 Rating</span>
+            <span style="color:#64748b; font-size:0.92rem;">&bull; 187+ Verified Elgin & Bastrop County Reviews</span>
+          </div>
         </div>
 
         <div class="grid-2" style="margin-top:30px;">
