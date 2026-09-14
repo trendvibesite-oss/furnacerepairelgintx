@@ -1,6 +1,6 @@
 {
   "name": "elgin-tx-hvac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "High-Performance Local HVAC Website for Elgin, Texas",
   "main": "generator.js",
   "scripts": {
