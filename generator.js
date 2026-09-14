@@ -755,6 +755,36 @@ function buildHomepage() {
     </div>
   </section>`;
 
+  // Core Section 8: Google Map Location
+  html += `
+  <section class="section section-bg-light" style="padding: 50px 0 65px; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Local Service Dispatch</span>
+        <h2>Our Elgin Office & Service Location</h2>
+        <p class="text-muted" style="max-width:750px; margin:0 auto 20px;">Centrally based on Central Ave in downtown Elgin to ensure rapid heating and AC dispatch across Bastrop and Travis counties.</p>
+      </div>
+      <div class="map-embed-wrap">
+        <iframe 
+          title="Google Map: Elgin Heating & Air Pros Office - 108 Central Ave, Elgin, TX 78621"
+          src="https://maps.google.com/maps?q=108+Central+Ave,+Elgin,+TX+78621&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:14px; padding:12px 18px; background:#ffffff; border-radius:10px; border:1px solid #e2e8f0; box-shadow:0 1px 3px rgba(15,43,72,0.04);">
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.92rem; color:var(--text-dark);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#e65100"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span><strong>108 Central Ave</strong>, Elgin, TX 78621</span>
+        </div>
+        <a href="https://maps.google.com/?q=108+Central+Ave,+Elgin,+TX+78621" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color:var(--primary); font-weight:600; font-size:0.9rem; text-decoration:none;">
+          <span>Open in Google Maps</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>`;
+
   html += getFooter();
   writePage('index.html', html);
   allUrls.push({ url: '/', priority: '1.0', changefreq: 'weekly' });
