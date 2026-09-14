@@ -1220,6 +1220,44 @@ p {
   color: #ffffff;
 }
 
+.footer-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin: 12px 0 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.footer-rating-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(251, 191, 36, 0.6);
+  transform: translateY(-1px);
+}
+
+.footer-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.footer-stars svg {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.footer-rating-text {
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+}
+
 .footer-disclaimer {
   font-size: 0.82rem;
   color: #ffffff;

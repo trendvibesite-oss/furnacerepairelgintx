@@ -258,6 +258,16 @@ function getFooter() {
       <div class="footer-col">
         <h4>${business.name}</h4>
         <p>Your trusted, local residential heating and air conditioning specialists in Elgin, Texas. Providing comprehensive furnace repair, seasonal tune-ups, and emergency heating diagnostics across Bastrop and eastern Travis County.</p>
+        <a href="/reviews/" class="footer-rating-badge" aria-label="Customer Rating 4.9 out of 5 stars based on 187+ reviews">
+          <span class="footer-stars" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          <span class="footer-rating-text">4.9/5 &middot; 187+ reviews</span>
+        </a>
         <a href="${business.phoneTel}" class="footer-phone-big">${business.phoneFormatted}</a>
         <p class="text-muted" style="margin-bottom:4px;"><strong>Service Hours:</strong> 24/7 Emergency Service</p>
         <p class="text-muted"><strong>Office:</strong> ${business.address.streetAddress}, ${business.address.addressLocality}, ${business.address.addressRegion} ${business.address.postalCode}</p>
