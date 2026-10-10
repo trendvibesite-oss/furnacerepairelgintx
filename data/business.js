@@ -2,9 +2,9 @@
 module.exports = {
   name: "Elgin Heating & Air Pros",
   shortName: "Elgin HVAC Pros",
-  phone: "+1 877-361-0428",
-  phoneFormatted: "(877) 361-0428",
-  phoneTel: "tel:+18773610428",
+  phone: "+1 737-282-0678",
+  phoneFormatted: "(737) 282-0678",
+  phoneTel: "tel:+17372820678",
   email: "service@elgin-hvac-pros.com",
   domain: "https://furnacerepairelgintx.forum", // Canonical root
   address: {
@@ -29,5 +29,5 @@ module.exports = {
     "Heat Pump Service",
     "Emergency Heating"
   ],
-  disclaimer: "Elgin Heating & Air Pros connects homeowners across Elgin and surrounding Central Texas communities with prompt, licensed HVAC service technicians. All work is performed in compliance with Texas municipal and state building codes. For fast diagnostics or emergency service, call (877) 361-0428."
+  disclaimer: "Elgin Heating & Air Pros connects homeowners across Elgin and surrounding Central Texas communities with prompt, licensed HVAC service technicians. All work is performed in compliance with Texas municipal and state building codes. For fast diagnostics or emergency service, call (737) 282-0678."
 };

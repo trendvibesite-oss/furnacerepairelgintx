@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.style.backgroundColor = '';
           btn.disabled = false;
           form.reset();
-          alert('Thank you! Your HVAC service request has been received. A dispatch technician will contact you shortly, or you can call us directly at (877) 361-0428.');
+          alert('Thank you! Your HVAC service request has been received. A dispatch technician will contact you shortly, or you can call us directly at (737) 282-0678.');
         }, 1200);
       }
     });

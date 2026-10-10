@@ -222,7 +222,7 @@ function getCtaBoxHtml(title = "Need Reliable Furnace or Heating Service in Elgi
     <p>${subtitle}</p>
     <a href="${business.phoneTel}" class="cta-phone-link" aria-label="Call Elgin Heating and Air">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      Call (877) 361-0428
+      Call (737) 282-0678
     </a>
   </div>`;
 }
@@ -478,7 +478,7 @@ function buildHomepage() {
 
   const seo = {
     title: "Furnace Repair in Elgin, TX | HVAC & Heating Services",
-    metaDescription: "Professional furnace repair and HVAC services in Elgin, TX. Rapid diagnostics, heating tune-ups, and emergency service in 78621. Call (877) 361-0428."
+    metaDescription: "Professional furnace repair and HVAC services in Elgin, TX. Rapid diagnostics, heating tune-ups, and emergency service in 78621. Call (737) 282-0678."
   };
 
   const homeFaqs = [
@@ -528,7 +528,7 @@ function buildHomepage() {
         <div class="hero-actions">
           <a href="${business.phoneTel}" class="btn-primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            Call (877) 361-0428
+            Call (737) 282-0678
           </a>
           <a href="${business.phoneTel}" class="btn-secondary">Emergency HVAC Dispatch</a>
         </div>
@@ -681,7 +681,7 @@ function buildHomepage() {
       <p style="max-width:700px; margin:0 auto 25px; font-size:1.1rem;">When temperatures drop below freezing, going without heat isn't just uncomfortable—it puts family members and household plumbing pipes at serious risk. Our on-call technicians provide 24-hour emergency diagnostics.</p>
       <a href="${business.phoneTel}" class="btn-primary" style="font-size:1.3rem; padding:16px 36px;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        Call 24/7 Dispatch: (877) 361-0428
+        Call 24/7 Dispatch: (737) 282-0678
       </a>
     </div>
   </section>`;
@@ -751,7 +751,7 @@ function buildHomepage() {
         <p class="text-muted">Answers to real questions from Elgin homeowners regarding heating performance and maintenance.</p>
       </div>
       ${getFaqAccordionHtml(homeFaqs)}
-      ${getCtaBoxHtml("Have a Question About Your Heating System?", "Our knowledgeable dispatch team is available to help. Call (877) 361-0428 today.")}
+      ${getCtaBoxHtml("Have a Question About Your Heating System?", "Our knowledgeable dispatch team is available to help. Call (737) 282-0678 today.")}
     </div>
   </section>`;
 
@@ -945,7 +945,7 @@ function buildAreaPages() {
   areas.forEach(area => {
     const seo = {
       title: `HVAC Services in ${area.name}, TX | Heating & Furnace Repair`,
-      metaDescription: `Professional HVAC, furnace repair, and heating services in ${area.fullName} (${area.zip}). Fast local dispatch from Elgin. Call (877) 361-0428.`
+      metaDescription: `Professional HVAC, furnace repair, and heating services in ${area.fullName} (${area.zip}). Fast local dispatch from Elgin. Call (737) 282-0678.`
     };
 
     const crumbs = [
@@ -1096,7 +1096,7 @@ function buildComboPages() {
 
       const seo = {
         title: `${service.name} in ${area.name}, TX | Fast Diagnostics & Repair`,
-        metaDescription: `Professional ${service.name.toLowerCase()} in ${area.fullName} (${area.zip}). Fast local diagnostics, skilled technicians, and 24/7 service. Call (877) 361-0428.`
+        metaDescription: `Professional ${service.name.toLowerCase()} in ${area.fullName} (${area.zip}). Fast local diagnostics, skilled technicians, and 24/7 service. Call (737) 282-0678.`
       };
 
       const crumbs = [
@@ -1302,7 +1302,7 @@ function buildUtilityPages() {
   {
     const seo = {
       title: "Contact Us | Schedule HVAC Service in Elgin, TX",
-      metaDescription: "Contact Elgin Heating & Air Pros for prompt furnace repair, tune-ups, and HVAC service in Elgin, TX 78621. Call (877) 361-0428 or request service online."
+      metaDescription: "Contact Elgin Heating & Air Pros for prompt furnace repair, tune-ups, and HVAC service in Elgin, TX 78621. Call (737) 282-0678 or request service online."
     };
     const crumbs = [{ name: "Home", url: "/" }, { name: "Contact Us", url: "/contact/" }];
     let html = getHead(seo, '/contact/', [getLocalBusinessSchema(), getBreadcrumbSchema(crumbs)]);
@@ -1421,7 +1421,7 @@ function buildUtilityPages() {
           </div>
         </div>
 
-        ${getCtaBoxHtml("Experience Reliable Heating Service in Elgin", "Call (877) 361-0428 to schedule service or speak with a local diagnostic technician.")}
+        ${getCtaBoxHtml("Experience Reliable Heating Service in Elgin", "Call (737) 282-0678 to schedule service or speak with a local diagnostic technician.")}
       </div>
     </section>`;
     html += getFooter();

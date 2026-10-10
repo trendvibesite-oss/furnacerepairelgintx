@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DIST_DIR = path.join(__dirname, 'dist');
-const TARGET_PHONE = 'tel:+18773610428';
+const TARGET_PHONE = 'tel:+17372820678';
 
 function getAllHtmlFiles(dirPath, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
